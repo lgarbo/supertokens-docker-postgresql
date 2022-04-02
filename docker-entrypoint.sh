@@ -36,7 +36,9 @@ CONFIG_MD5SUM="$(md5sum /usr/lib/supertokens/config.yaml | awk '{ print $1 }')"
 
 # if files have been shared using shared volumes, make sure the ownership of the
 # /usr/lib/supertokens files still remains with supertokens user
-chown -R supertokens:supertokens /usr/lib/supertokens/
+# chown -R supertokens:supertokens /usr/lib/supertokens/
+
+SUPERTOKENS_PORT=${SUPERTOKENS_PORT:-$PORT}
 
 if [ "$CONFIG_HASH" = "$CONFIG_MD5SUM" ]
 then
